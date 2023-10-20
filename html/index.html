@@ -7,11 +7,14 @@
     <div>
         <button onclick="loadFile()">Load File</button>
         <button onclick="saveData()">Save File</button>
+        <input type="file" id="inputFile" accept=".txt" style="display: none">
     </div>
     <div>
+        <p id='imgCounter'></p>
         <img id="imageField" src="" alt="Image">
-        <input type="text" id="inputText" value="" placeholder="Text">
-        <input type="file" id="inputFile" accept=".txt" style="display: none">
+    </div>
+    <div>
+        <input type="text" id="inputText" value="" placeholder="Text" style="text-align:center;">
         <button onclick="nextImage()">Next</button>
     </div>
 
@@ -45,6 +48,7 @@
 
         function showImage() {
             var keys = Object.keys(data);
+            document.getElementById('imgCounter').innerText = currentIndex + 1 + ' / ' + keys.length
             if (currentIndex < keys.length) {
                 currentImgName = keys[currentIndex];
                 var texto = data[currentImgName];
